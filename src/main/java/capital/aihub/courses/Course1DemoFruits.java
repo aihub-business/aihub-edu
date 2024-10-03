@@ -15,6 +15,7 @@ public class Course1DemoFruits {
         System.out.println("Dlouhé ovoce: " + longFruits);
     }
 
+
 // Use case 2: Optimalizace kódu
 // Prompt> Jak mohu tuto metodu optimalizovat?
 // Neoptimalizovaná metoda pro filtrování dlouhého ovoce

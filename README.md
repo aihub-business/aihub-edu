@@ -42,7 +42,7 @@ Use Case 1
 Compare the `filterLongFruitsUnoptimized` and `filterLongFruits` methods. Notice how the optimized version uses the Stream API to achieve the same result more concisely.
 
 Use case 2
-- Code optimalisation
+- Code optimisation
 - AI Prompt > How can I optimize this method?
 - Compare output with not optimized method
 
