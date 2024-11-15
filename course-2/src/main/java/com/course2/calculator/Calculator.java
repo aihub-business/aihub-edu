@@ -12,16 +12,40 @@ public class Calculator {
         return a.add(b).setScale(DEFAULT_SCALE, RoundingMode.HALF_UP);
     }
 
+    /**
+     * Subtracts the second BigDecimal number from the first and returns the result rounded to the default scale.
+     *
+     * @param a the number to subtract from
+     * @param b the number to subtract
+     * @return the result of a minus b, rounded to the default scale
+     * @throws IllegalArgumentException if any of the inputs are null
+     */
     public BigDecimal subtract(BigDecimal a, BigDecimal b) {
         validateInputs(a, b);
         return a.subtract(b).setScale(DEFAULT_SCALE, RoundingMode.HALF_UP);
     }
 
+    /**
+     * Multiplies two BigDecimal numbers and returns the result rounded to the default scale.
+     *
+     * @param a the first number to multiply
+     * @param b the second number to multiply
+     * @return the product of a and b, rounded to the default scale
+     * @throws IllegalArgumentException if any of the inputs are null
+     */
     public BigDecimal multiply(BigDecimal a, BigDecimal b) {
         validateInputs(a, b);
         return a.multiply(b).setScale(DEFAULT_SCALE, RoundingMode.HALF_UP);
     }
 
+    /**
+     * Divides the first BigDecimal number by the second and returns the result rounded to the default scale.
+     *
+     * @param a the number to divide
+     * @param b the number to divide by
+     * @return the result of a divided by b, rounded to the default scale
+     * @throws IllegalArgumentException if any of the inputs are null or if b is zero
+     */
     public BigDecimal divide(BigDecimal a, BigDecimal b) {
         validateInputs(a, b);
         if (b.compareTo(BigDecimal.ZERO) == 0) {
