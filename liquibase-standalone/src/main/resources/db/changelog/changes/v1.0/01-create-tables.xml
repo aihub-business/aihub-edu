@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.9.xsd">
+
+    <changeSet id="1" author="developer">
+        <!-- Products table -->
+        <createTable tableName="products">
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="name" type="varchar(100)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="price" type="decimal(10,2)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_at" type="timestamp" defaultValueComputed="CURRENT_TIMESTAMP"/>
+        </createTable>
+
+        <!-- Orders table -->
+        <createTable tableName="orders">
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="order_date" type="timestamp" defaultValueComputed="CURRENT_TIMESTAMP"/>
+            <column name="status" type="varchar(20)" defaultValue="NEW">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <!-- Order items table -->
+        <createTable tableName="order_items">
+            <column name="order_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="product_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="quantity" type="int" defaultValue="1">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <!-- Foreign keys -->
+        <addForeignKeyConstraint
+            baseTableName="order_items"
+            baseColumnNames="order_id"
+            constraintName="fk_order_items_order"
+            referencedTableName="orders"
+            referencedColumnNames="id"
+            onDelete="CASCADE"/>
+        
+        <addForeignKeyConstraint
+            baseTableName="order_items"
+            baseColumnNames="product_id"
+            constraintName="fk_order_items_product"
+            referencedTableName="products"
+            referencedColumnNames="id"/>
+
+        <!-- Indexes -->
+        <createIndex indexName="idx_order_items_order_id"
+                    tableName="order_items">
+            <column name="order_id"/>
+        </createIndex>
+        
+        <createIndex indexName="idx_order_items_product_id"
+                    tableName="order_items">
+            <column name="product_id"/>
+        </createIndex>
+    </changeSet>
+</databaseChangeLog>

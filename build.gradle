@@ -1,0 +1,9 @@
+// Root build.gradle
+allprojects {
+    group = 'business.aihub.edu'
+    version = '1.0.0-SNAPSHOT'
+
+    repositories {
+        mavenCentral()
+    }
+}

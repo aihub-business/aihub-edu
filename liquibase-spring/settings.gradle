@@ -1,0 +1,3 @@
+rootProject.name = 'liquibase-course'
+include 'liquibase-demo'
+include 'liquibase-exercises'

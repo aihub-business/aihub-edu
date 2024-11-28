@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.9.xsd">
+
+    <changeSet id="2" author="developer">
+        <!-- Insert sample products -->
+        <insert tableName="products">
+            <column name="name" value="Sample Product 1"/>
+            <column name="price" value="99.99"/>
+        </insert>
+        <insert tableName="products">
+            <column name="name" value="Sample Product 2"/>
+            <column name="price" value="149.99"/>
+        </insert>
+
+        <!-- Create a sample order -->
+        <insert tableName="orders">
+            <column name="status" value="NEW"/>
+        </insert>
+
+        <!-- Link products to the order -->
+        <insert tableName="order_items">
+            <column name="order_id" valueNumeric="1"/>
+            <column name="product_id" valueNumeric="1"/>
+            <column name="quantity" valueNumeric="2"/>
+        </insert>
+        <insert tableName="order_items">
+            <column name="order_id" valueNumeric="1"/>
+            <column name="product_id" valueNumeric="2"/>
+            <column name="quantity" valueNumeric="1"/>
+        </insert>
+    </changeSet>
+</databaseChangeLog>

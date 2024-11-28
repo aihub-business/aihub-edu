@@ -1,0 +1,10 @@
+rootProject.name = 'aihub-edu'
+
+// add subprojects
+include 'copilot-exercise-1'
+include 'copilot-exercise-2'
+include 'liquibase-standalone'
+
+include 'liquibase-spring'
+include 'liquibase-spring:liquibase-demo'
+include 'liquibase-spring:liquibase-exercises'
